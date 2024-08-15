@@ -4,7 +4,10 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 
 @Entity
-@Table
+@Table(name = "posts")
 public class Post {
 
+    Long id;
+    String title;
+    String description;
 }
