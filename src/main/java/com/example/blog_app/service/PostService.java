@@ -16,4 +16,9 @@ public class PostService {
 
     }
 
+    public Post createPost(Post post) {
+        return postDao.save(post);
+
+    }
+
 }
