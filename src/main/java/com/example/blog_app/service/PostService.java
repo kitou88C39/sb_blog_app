@@ -9,16 +9,15 @@ import org.springframework.stereotype.Service;
 public class PostService {
 
     @Autowired
-    private PostDao postDao;
+    private PostDAO postDAO;
 
     public Post createPost(Post post) {
-        return postDao.save(post);
+        return postDAO.save(post);
 
     }
 
-    public Post createPost(Post post) {
-        return postDao.save(post);
-
+    public Post getPostById(Long id) {
+        return postDAO.findById(id).orElseThrow(() -> new RuntimeException(id + " -> This id dosen't exists"));
     }
 
 }
