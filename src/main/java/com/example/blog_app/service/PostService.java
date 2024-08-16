@@ -12,8 +12,8 @@ public class PostService {
     private PostDao postDao;
 
     public Post createPost(Post post) {
-        Post newPost = postDao.save(post);
-        return newPost;
+        return postDao.save(post);
+
     }
 
 }
