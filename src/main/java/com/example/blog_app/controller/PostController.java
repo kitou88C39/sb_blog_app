@@ -18,7 +18,8 @@ public class PostController {
         return new ResponseEntity<>("Post created successfully. Id -> " + response.getId(), HttpStatus.CREATED);
     }
 
-    public ResponseEntity<Post> getPostById() {
+    @GetMapping("/getPost/{id}")
+    public ResponseEntity<Post> getPostById(@PathVariable Long id) {
 
     }
 }
