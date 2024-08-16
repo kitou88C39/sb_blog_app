@@ -11,4 +11,8 @@ public interface JpaRespsitory<T, ID>
 
     <S extends T> List<S> saveAllFlush(Interable<S> entities);
 
+    @Deprecated
+    default void deleteInBatch(Interable<T> entities) {
+        this.deleteAllInBatch(entities);
+    }
 }
