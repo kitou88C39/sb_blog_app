@@ -20,4 +20,7 @@ public class PostService {
         return postDao.findById(id).orElseThrow(() -> new RuntimeException(id + " -> This id dosen't exists"));
     }
 
+    public List<Post> getAllPost() {
+
+    }
 }
