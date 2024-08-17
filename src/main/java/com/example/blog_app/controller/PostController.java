@@ -33,10 +33,14 @@ public class PostController {
     }
 
     @PutMapping("/updatePost/{id}")
-    public ResponseEntity<String> updatePost(@RequestBody Post post, @PathVariable String id) {
+    public ResponseEntity<String> updatePost(@RequestBody Post post, @PathVariable Long id) {
         postService.updatePostById(post, id);
 
         return new ResponseEntity<>("Post updated successfully", HttpStatus.OK);
+    }
+
+    @DeleteMapping("/deletePost/{id}")
+    public ResponseEntity<String> deletePost() {
 
     }
 }
