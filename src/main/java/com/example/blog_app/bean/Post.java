@@ -3,6 +3,8 @@ package com.example.blog_app.bean;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.*;
+
 @Entity
 @Table(name = "posts")
 @NoArgsConstructor
@@ -19,4 +21,7 @@ public class Post {
 
     @Column
     String description;
+
+    @OneToMany
+    List<Comment> comments = new ArrayList<>();
 }
