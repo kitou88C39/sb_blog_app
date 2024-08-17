@@ -26,10 +26,12 @@ public class PostService {
     }
 
     public Post updatePostById(Post post, Long id) {
-        if (postDao.findById(id).isPresent()){
-
-        }  else {
-            return  new RuntimeException(id + " -> This id dosen't exists"));
+        if (postDao.findById(id).isPresent()) {
+            Post newPost = new Post();
+            newPost.setId(id);
+            newPost.setTitle(post.getTitle());
+        } else {
+            return new RuntimeException(id + " -> This id dosen't exists");
         }
     }
 }
