@@ -32,8 +32,8 @@ public class PostController {
         return postService.getAllPost();
     }
 
-    @PutMapping("path/{id}")
-    public String putMethodName(@PathVariable String id, @RequestBody String entity) {
-        return entity;
+    @PutMapping("/updatePost/{id}")
+    public ResponseEntity<String> updatePost(@RequestBody Post post, @PathVariable String id) {
+        postService.updatePostById(post, id);
     }
 }
