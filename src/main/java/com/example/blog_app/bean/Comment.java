@@ -20,4 +20,7 @@ public class Comment {
     private String email;
     @Column
     private String comment_desc;
+    @ManyToOne
+    private Post post;
+
 }
