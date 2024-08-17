@@ -1,5 +1,10 @@
 package com.example.blog_app.dao;
 
-public class CommentDao {
+import com.example.blog_app.bean.Post;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface CommentDao extends JpaRepository<Post, Long> {
 
 }
