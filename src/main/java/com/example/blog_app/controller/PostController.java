@@ -2,6 +2,8 @@ package com.example.blog_app.controller;
 
 import com.example.blog_app.bean.Post;
 import com.example.blog_app.service.PostService;
+
+import org.hibernate.mapping.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
@@ -21,7 +23,11 @@ public class PostController {
     @GetMapping("/getPost/{id}")
     public ResponseEntity<Post> getPostById(@PathVariable Long id) {
         Post response = postService.getPostById(id);
-        return ResponseEntity.ok(response);
 
+        return ResponseEntity.ok(response);
+    }
+
+    public List<Post> getAllPost() {
+        return postService.getAllPost();
     }
 }
