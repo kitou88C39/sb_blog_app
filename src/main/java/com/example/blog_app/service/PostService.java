@@ -15,7 +15,6 @@ public class PostService {
 
     public Post createPost(Post post) {
         return postDao.save(post);
-
     }
 
     public Post getPostById(Long id) {
@@ -24,5 +23,9 @@ public class PostService {
 
     public List<Post> getAllPost() {
         return postDao.findAll();
+    }
+
+    public Post updatePostById(Post post, Long id) {
+        return postDao.save(post);
     }
 }
