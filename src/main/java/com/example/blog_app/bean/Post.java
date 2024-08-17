@@ -22,6 +22,6 @@ public class Post {
     @Column
     String description;
 
-    @OneToMany
+    @OneToMany(mappedBy = "post")
     List<Comment> comments = new ArrayList<>();
 }
