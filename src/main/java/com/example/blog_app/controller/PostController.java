@@ -7,6 +7,9 @@ import org.hibernate.mapping.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.PathVariable;
 
 @RestController
 public class PostController {
@@ -30,5 +33,10 @@ public class PostController {
     @GetMapping("/getPosts")
     public List<Post> getAllPost() {
         return postService.getAllPost();
+    }
+
+    @PutMapping("path/{id}")
+    public String putMethodName(@PathVariable String id, @RequestBody String entity) {
+        return entity;
     }
 }
