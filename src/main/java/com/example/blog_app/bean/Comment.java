@@ -11,4 +11,11 @@ import lombok.*;
 @Setter
 public class Comment {
 
+    private Long id;
+
+    private String name;
+
+    private String email;
+
+    private String comment_desc;
 }
