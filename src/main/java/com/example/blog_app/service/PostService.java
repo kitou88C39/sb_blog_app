@@ -30,6 +30,8 @@ public class PostService {
             Post newPost = new Post();
             newPost.setId(id);
             newPost.setTitle(post.getTitle());
+            newPost.setDescription(post.getDescription());
+            return postDao.save(newPost);
         } else {
             return new RuntimeException(id + " -> This id dosen't exists");
         }
