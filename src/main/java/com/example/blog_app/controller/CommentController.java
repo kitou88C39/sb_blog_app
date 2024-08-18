@@ -13,6 +13,7 @@ public class CommentController {
 
     @PostMapping("/posts/{id}/createComment")
     public ResponseEntity<String> createComment(@PathVariable Long id, @RequestBody Comment comment) {
+        commentService.addComment(comment, id)
     }
 
 }
