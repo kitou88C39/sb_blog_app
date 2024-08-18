@@ -15,7 +15,6 @@ public class CommentService {
     @Autowired
     private CommentDao commentDao;
 
-    // addComment()
     public Comment addComment(Comment comment, Long postId) {
         Post post = postDao.findById(postId)
                 .orElseThrow(() -> new RuntimeException(postId + " -> This post id doesn't exists"));
@@ -24,7 +23,10 @@ public class CommentService {
         return commentDao.save(comment);
     }
 
-    // getCommentByCommentId()
+    public Comment getCommentByCommentId(Long id) {
+        commentDao.findById(postId)
+                .orElseThrow(() -> new RuntimeException(postId + " -> This post id doesn't exists"));
+    }
     // getCommentByPostId()
     // updateComment()
     // deleteComment()
