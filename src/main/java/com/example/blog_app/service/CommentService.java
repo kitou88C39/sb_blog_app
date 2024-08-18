@@ -6,6 +6,8 @@ import com.example.blog_app.dao.PostDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.*;
+
 @Service
 public class CommentService {
 
@@ -28,7 +30,8 @@ public class CommentService {
                 .orElseThrow(() -> new RuntimeException(id + " -> This id doesn't exists"));
     }
 
-    public Comment getCommentByPostId(Long postId) {
+    public List<Comment> getCommentByPostId(Long postId) {
+        return commentDao.findByPostId(postId);
     }
     // updateComment()
     // deleteComment()
