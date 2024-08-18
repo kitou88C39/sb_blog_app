@@ -1,6 +1,6 @@
 package com.example.blog_app.service;
 
-import com.example.blog_app.bean.Comment;
+import com.example.blog_app.bean.Comment; // Import the correct Comment class
 import com.example.blog_app.dao.CommentDao;
 import com.example.blog_app.dao.PostDao;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +18,7 @@ public class CommentService {
     // addComment()
     Comment addComment(Comment comment, Long postId) {
         Post post = postDao.findById(postId)
-                .orElseThrow(() -> new RuntimeException(postId + " -> This post id dosen't exists"));
+                .orElseThrow(() -> new RuntimeException(postId + " -> This post id doesn't exists"));
         comment.setPost(post);
 
         return commentDao.save(comment);
