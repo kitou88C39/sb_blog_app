@@ -44,8 +44,9 @@ public class CommentService {
         commentDao.save(comment);
     }
 
-    public void deleteCommentByCommentId() {
-
+    public void deleteCommentByCommentId(Long id) {
+        commentDao.findById(id)
+                .orElseThrow(() -> new RuntimeException(id + " -> This id doesn't exists"));
     }
 
 }
