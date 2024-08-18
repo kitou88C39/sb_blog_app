@@ -16,7 +16,7 @@ public class CommentService {
     private CommentDao commentDao;
 
     // addComment()
-    Comment addComment(Comment comment, Long postId) {
+    public Comment addComment(Comment comment, Long postId) {
         Post post = postDao.findById(postId)
                 .orElseThrow(() -> new RuntimeException(postId + " -> This post id doesn't exists"));
         comment.setPost(post);
