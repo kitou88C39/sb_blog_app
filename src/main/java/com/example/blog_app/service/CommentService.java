@@ -17,6 +17,7 @@ public class CommentService {
 
     // addComment()
     Comment addComment(Comment comment, Long postId) {
+        postDao.findById(postId).orElseThrow(() -> new RuntimeException(id + " -> This id dosen't exists"));
 
     }
 
