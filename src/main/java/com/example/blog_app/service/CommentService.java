@@ -43,6 +43,9 @@ public class CommentService {
 
         commentDao.save(comment);
     }
-    // deleteComment()
+
+    public void deleteCommentByCommentId() {
+
+    }
 
 }
