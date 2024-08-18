@@ -1,10 +1,9 @@
 package com.example.blog_app.controller;
 
-import com.example.blog_app.service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import com.example.blog_app.service.CommentService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class CommentController {
@@ -12,8 +11,8 @@ public class CommentController {
     @Autowired
     private CommentService commentService;
 
-    @PostMapping
-    public ResponseEntity<String> createComment() {
+    @PostMapping("/posts/{id}/createComment")
+    public ResponseEntity<String> createComment(@PathVariable Long id, @RequestBody Comment comment) {
     }
 
 }
