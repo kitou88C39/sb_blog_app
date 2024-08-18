@@ -1,5 +1,6 @@
 package com.example.blog_app.service;
 
+import com.example.blog_app.bean.Comment;
 import com.example.blog_app.dao.CommentDao;
 import com.example.blog_app.dao.PostDao;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,9 @@ public class CommentService {
     private CommentDao commentDao;
 
     // addComment()
+    Comment addComment(Comment comment, Long postId) {
+
+    }
 
     // getCommentByCommentId()
     // getCommentByPostId()
