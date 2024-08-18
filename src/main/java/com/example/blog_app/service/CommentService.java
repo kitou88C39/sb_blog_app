@@ -33,7 +33,9 @@ public class CommentService {
     public List<Comment> getCommentByPostId(Long postId) {
         return commentDao.findByPostId(postId);
     }
-    // updateComment()
+
+    public void updateCommentByCommentId(Long commentId, Long postId) {
+    }
     // deleteComment()
 
 }
