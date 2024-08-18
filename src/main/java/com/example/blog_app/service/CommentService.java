@@ -37,6 +37,11 @@ public class CommentService {
     public void updateCommentByCommentId(Long commentId, Long postId, Comment comment) {
         Post post = postDao.findById(postId)
                 .orElseThrow(() -> new RuntimeException(postId + " -> This post id doesn't exists"));
+
+        comment.setId(commentId);
+        comment.setPost(post);
+
+        commentDao.save(comment);
     }
     // deleteComment()
 
