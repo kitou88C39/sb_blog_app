@@ -24,10 +24,12 @@ public class CommentService {
     }
 
     public Comment getCommentByCommentId(Long id) {
-        commentDao.findById(postId)
-                .orElseThrow(() -> new RuntimeException(postId + " -> This post id doesn't exists"));
+        return commentDao.findById(id)
+                .orElseThrow(() -> new RuntimeException(id + " -> This id doesn't exists"));
     }
-    // getCommentByPostId()
+
+    public Comment getCommentByPostId(Long postId) {
+    }
     // updateComment()
     // deleteComment()
 
