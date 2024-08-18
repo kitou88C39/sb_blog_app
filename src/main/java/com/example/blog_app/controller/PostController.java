@@ -8,7 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
 
-@CommentController
+import java.util.*;
+
+@RestController
 public class PostController {
 
     @Autowired
@@ -17,6 +19,7 @@ public class PostController {
     @PostMapping("/createPost")
     public ResponseEntity<String> createPost(@RequestBody Post post) {
         Post response = postService.createPost(post);
+
         return new ResponseEntity<>("Post created successfully. Id -> " + response.getId(), HttpStatus.CREATED);
     }
 
