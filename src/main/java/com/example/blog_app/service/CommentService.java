@@ -15,6 +15,7 @@ public class CommentService {
     private CommentDao commentDao;
 
     // addComment()
+
     // getCommentByCommentId()
     // getCommentByPostId()
     // updateComment()
