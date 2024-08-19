@@ -2,8 +2,6 @@ package com.example.blog_app.controller;
 
 import com.example.blog_app.bean.Post;
 import com.example.blog_app.service.PostService;
-
-import org.hibernate.mapping.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
@@ -48,4 +46,5 @@ public class PostController {
 
         return new ResponseEntity<>("Post deleted successfully.", HttpStatus.OK);
     }
+
 }
