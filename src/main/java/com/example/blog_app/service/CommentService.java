@@ -46,13 +46,11 @@ public class CommentService {
     }
 
     public void deleteCommentByCommentId(Long id) {
-        if (postDao.findById(id).isPresent()) {
-            postDao.deleteById(id);
+        if (commentDao.findById(id).isPresent()) {
+            commentDao.deleteById(id);
         } else {
             throw new RuntimeException(id + " -> This id doesn't exists");
         }
-
-        commentDao.deleteById(id);
 
     }
 
