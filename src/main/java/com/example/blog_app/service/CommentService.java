@@ -1,6 +1,7 @@
 package com.example.blog_app.service;
 
 import com.example.blog_app.bean.Comment;
+import com.example.blog_app.bean.Post;
 import com.example.blog_app.dao.CommentDao;
 import com.example.blog_app.dao.PostDao;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,6 +46,11 @@ public class CommentService {
     }
 
     public void deleteCommentByCommentId(Long id) {
+        if (postDao.findById(id).isPresent()) {
+            postDao.deleteById(id);
+        } else {
+            throw new RuntimeException(id + " -> This id doesn't exists");
+        }
 
         commentDao.deleteById(id);
 
