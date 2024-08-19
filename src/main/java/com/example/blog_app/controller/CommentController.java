@@ -1,5 +1,6 @@
 package com.example.blog_app.controller;
 
+import org.hibernate.mapping.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.example.blog_app.service.CommentService;
 
@@ -38,6 +39,13 @@ public class CommentController {
         response = commentService.updateCommentByCommentId(commentId, postId, null);
 
         return new ResponseEntity<>("Post updated successfully. -> ", HttpStatus.OK);
+    }
+
+    @DeleteMapping("/deletePost/{id}")
+    public ResponseEntity<String> deletePost(@PathVariable Long id) {
+        postService.deletePostById(id);
+
+        return new ResponseEntity<>("Post deleted successfully.", HttpStatus.OK);
     }
 
 }
