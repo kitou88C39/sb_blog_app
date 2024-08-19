@@ -6,6 +6,8 @@ import com.example.blog_app.service.CommentService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @RestController
 public class CommentController {
@@ -25,4 +27,10 @@ public class CommentController {
         Comment commentService.getCommentByCommentId(id);
         return new ResponseEntity<>(comment, HttpStatus.OK);
     }
+
+    @GetMapping("path")
+    public String getMethodName(@RequestParam String param) {
+        return new String();
+    }
+
 }
