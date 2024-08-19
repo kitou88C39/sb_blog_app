@@ -32,7 +32,7 @@ public class PostService {
             newPost.setTitle(post.getTitle());
             newPost.setDescription(post.getDescription());
 
-            postDAO.save(newPost);
+            postDao.save(newPost);
         } else {
             throw new RuntimeException(id + " -> This id doesn't exists");
         }

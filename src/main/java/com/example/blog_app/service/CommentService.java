@@ -13,13 +13,13 @@ import java.util.*;
 public class CommentService {
 
     @Autowired
-    private PostDAO postDAO;
+    private PostDao postDao;
 
     @Autowired
-    private CommentDAO commentDAO;
+    private CommentDao commentDAO;
 
     public Comment addComment(Comment comment, Long postId) {
-        Post post = postDAO.findById(postId)
+        Post post = postDao.findById(postId)
                 .orElseThrow(() -> new RuntimeException(postId + " -> This post id doesn't exists"));
         comment.setPost(post);
 
@@ -36,7 +36,7 @@ public class CommentService {
     }
 
     public void updateCommentByCommentId(Long commentId, Long postId, Comment comment) {
-        Post post = postDAO.findById(postId)
+        Post post = postDao.findById(postId)
                 .orElseThrow(() -> new RuntimeException(postId + " -> This post id doesn't exists"));
 
         comment.setId(commentId);
