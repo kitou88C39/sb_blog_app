@@ -16,23 +16,23 @@ public class CommentService {
     private PostDao postDao;
 
     @Autowired
-    private CommentDao commentDAO;
+    private CommentDao commentDao;
 
     public Comment addComment(Comment comment, Long postId) {
         Post post = postDao.findById(postId)
                 .orElseThrow(() -> new RuntimeException(postId + " -> This post id doesn't exists"));
         comment.setPost(post);
 
-        return commentDAO.save(comment);
+        return commentDao.save(comment);
     }
 
     public Comment getCommentByCommentId(Long id) {
-        return commentDAO.findById(id)
+        return commentDao.findById(id)
                 .orElseThrow(() -> new RuntimeException(id + " -> This id doesn't exists"));
     }
 
     public List<Comment> getCommentByPostId(Long postId) {
-        return commentDAO.findByPostId(postId);
+        return commentDao.findByPostId(postId);
     }
 
     public void updateCommentByCommentId(Long commentId, Long postId, Comment comment) {
@@ -42,12 +42,12 @@ public class CommentService {
         comment.setId(commentId);
         comment.setPost(post);
 
-        commentDAO.save(comment);
+        commentDao.save(comment);
     }
 
     public void deleteCommentByCommentId(Long id) {
-        if (commentDAO.findById(id).isPresent()) {
-            commentDAO.deleteById(id);
+        if (commentDao.findById(id).isPresent()) {
+            commentDao.deleteById(id);
         } else {
             throw new RuntimeException(id + " -> This id doesn't exists");
         }
