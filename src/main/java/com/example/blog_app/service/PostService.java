@@ -45,5 +45,4 @@ public class PostService {
             throw new RuntimeException(id + " -> This id doesn't exists");
         }
     }
-
 }
