@@ -1,12 +1,13 @@
 package com.example.blog_app.controller;
 
-import org.hibernate.mapping.List;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.example.blog_app.bean.Comment;
 import com.example.blog_app.service.CommentService;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 public class CommentController {
@@ -14,18 +15,18 @@ public class CommentController {
     @Autowired
     private CommentService commentService;
 
-    @PostMapping("/posts/{id}/createComment")
-    public ResponseEntity<String> createComment(@RequestBody Comment comment, @PathVariable Long id) {
+    @PostMapping("/posts/{id}/addComment")
+    public ResponseEntity<String> addComment(@RequestBody Comment comment, @PathVariable Long id) {
         Comment response = commentService.addComment(comment, id);
 
-        return new ResponseEntity<>("Post created successfully for Id -> " + response.getId(), HttpStatus.CREATED);
+        return new ResponseEntity<>("Comment created successfully. Id -> " + response.getId(), HttpStatus.CREATED);
     }
 
     @GetMapping("/comment/{id}")
     public ResponseEntity<Comment> getCommentByCommentId(@PathVariable Long id) {
         Comment comment = commentService.getCommentByCommentId(id);
 
-        return new ResponseEntity<>(comment, HttpStatus.OK);
+        return ResponseEntity.ok(comment);
     }
 
     @GetMapping("/post/{id}/getComments")
@@ -38,7 +39,7 @@ public class CommentController {
             @RequestBody Comment comment) {
         commentService.updateCommentByCommentId(commentId, postId, comment);
 
-        return new ResponseEntity<>("Post updated successfully. -> ", HttpStatus.OK);
+        return new ResponseEntity<>("Comment updated successfully.", HttpStatus.OK);
     }
 
     @DeleteMapping("/deleteComment/{id}")
