@@ -22,6 +22,7 @@ public class CommentController {
 
     @GetMapping("/comment/{id}")
     public ResponseEntity<Comment> getCommentByCommentId(@PathVariable Long id) {
-        commentService.getCommentByCommentId(id);
+        Comment commentService.getCommentByCommentId(id);
+        return new ResponseEntity<>(comment, HttpStatus.OK);
     }
 }
