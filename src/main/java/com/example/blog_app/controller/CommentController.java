@@ -36,16 +36,16 @@ public class CommentController {
     @PutMapping("/post/{postId}/comment/{commentId}")
     public ResponseEntity<String> updateComment(@PathVariable Long postId, @PathVariable Long commentId,
             @RequestBody Comment comment) {
-        response = commentService.updateCommentByCommentId(commentId, postId, null);
+        commentService.updateCommentByCommentId(commentId, postId, comment);
 
         return new ResponseEntity<>("Post updated successfully. -> ", HttpStatus.OK);
     }
 
-    @DeleteMapping("/deletePost/{id}")
-    public ResponseEntity<String> deletePost(@PathVariable Long id) {
-        postService.deletePostById(id);
+    @DeleteMapping("/deleteComment/{id}")
+    public ResponseEntity<String> deleteComment(@PathVariable Long id) {
+        commentService.deleteCommentByCommentId(id);
 
-        return new ResponseEntity<>("Post deleted successfully.", HttpStatus.OK);
+        return new ResponseEntity<>("Comment deleted successfully.", HttpStatus.OK);
     }
 
 }
