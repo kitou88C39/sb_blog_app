@@ -24,13 +24,13 @@ public class CommentController {
 
     @GetMapping("/comment/{id}")
     public ResponseEntity<Comment> getCommentByCommentId(@PathVariable Long id) {
-        Comment commentService.getCommentByCommentId(id);
+        Comment comment = commentService.getCommentByCommentId(id);
 
         return new ResponseEntity<>(comment, HttpStatus.OK);
     }
 
-    @GetMapping("/post/{postId}/comment/{commentId}")
-    public List<Comment> getCommentByPostId(@PathVariable Long postId, @PathVariable Long commentId) {
+    @GetMapping("/post/{id}/getComments")
+    public List<Comment> getCommentByPostId(@PathVariable Long id) {
         return new String();
     }
 
