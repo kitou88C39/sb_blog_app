@@ -2,8 +2,6 @@ package com.example.blog_app.service;
 
 import com.example.blog_app.bean.Post;
 import com.example.blog_app.dao.PostDao;
-
-import org.hibernate.mapping.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,22 +18,32 @@ public class PostService {
     }
 
     public Post getPostById(Long id) {
-        return postDao.findById(id).orElseThrow(() -> new RuntimeException(id + " -> This id dosen't exists"));
+        return postDao.findById(id).orElseThrow(() -> new RuntimeException(id + " -> This id doesn't exists"));
     }
 
     public List<Post> getAllPost() {
         return postDao.findAll();
     }
 
-    public Post updatePostById(Post post, Long id) {
+    public void updatePostById(Post post, Long id) {
         if (postDao.findById(id).isPresent()) {
             Post newPost = new Post();
             newPost.setId(id);
             newPost.setTitle(post.getTitle());
             newPost.setDescription(post.getDescription());
-            return postDao.save(newPost);
+
+            postDAO.save(newPost);
         } else {
-            return new RuntimeException(id + " -> This id dosen't exists");
+            throw new RuntimeException(id + " -> This id doesn't exists");
         }
     }
+
+    public void deletePostById(Long id) {
+        if (postDao.findById(id).isPresent()) {
+            postDao.deleteById(id);
+        } else {
+            throw new RuntimeException(id + " -> This id doesn't exists");
+        }
+    }
+
 }
