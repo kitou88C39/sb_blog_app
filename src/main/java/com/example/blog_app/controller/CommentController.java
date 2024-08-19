@@ -36,7 +36,7 @@ public class CommentController {
     public ResponseEntity<String> updateComment(@PathVariable Long postId, @PathVariable Long commentId,
             @RequestBody Comment comment) {
 
-        return new ResponseEntity<>("Post created successfully for Id -> " + response.getId(), HttpStatus.CREATED);
+        return new ResponseEntity<>("Post created successfully for Id -> " + response.getId(), HttpStatus.OK);
     }
 
 }
