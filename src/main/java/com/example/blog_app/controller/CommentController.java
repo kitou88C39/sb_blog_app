@@ -19,4 +19,9 @@ public class CommentController {
 
         return new ResponseEntity<>("Post created successfully for Id -> " + response.getId(), HttpStatus.CREATED);
     }
+
+    @GetMapping("/comment/{id}")
+    public ResponseEntity<Comment> getCommentByCommentId(@PathVariable Long id) {
+        commentService.getCommentByCommentId(id);
+    }
 }
